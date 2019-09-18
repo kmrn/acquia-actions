@@ -20,9 +20,9 @@ jobs:
           touch ~/.ssh/known_hosts
           echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa_gha
           echo $SSH_PUBLIC_KEY > ~/.ssh/id_rsa_gha.pub
-          chmod 700 "~/.ssh"
-          chmod 600 "~/.ssh/known_hosts
-          chmod 600 "~/.ssh/id_rsa_gha
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_rsa_gha
           ssh-add $HOME/.ssh/id_rsa_gha
       - name: Add Acquia to known_hosts
         run: ssh-keyscan -t rsa free-8013.devcloud.hosting.acquia.com,3.230.0.80 >> ~/.ssh/known_hosts
