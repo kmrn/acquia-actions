@@ -22,7 +22,7 @@ jobs:
           eval $(ssh-agent -s)
           printf "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
           ssh-add ~/.ssh/id_rsa_pem
-          { printf "free-8013.devcloud.hosting.acquia.com " & cat ~/.ssh/id_rsa_pem.pub; } >> ~/.ssh/known_hosts
+          ssh-keyscan -t rsa free-8013.devcloud.hosting.acquia.com >> ~/.ssh/known_hosts
           ssh-keygen -Hf ~/.ssh/known_hosts
       - name: Push to Acquia Repository
         run: printf 'yes\n' | git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git HEAD:master
