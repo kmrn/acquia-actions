@@ -15,6 +15,7 @@ jobs:
         uses: webfactory/ssh-agent@v0.1.1
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: ssh-keyscan -t rsa free-8013.devcloud.hosting.acquia.com >> ~/.ssh/known_hosts
       - name: Push to Acquia Repository
-        run: git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git HEAD:master
+        run: |
+          ssh-keyscan -t rsa free-8013.devcloud.hosting.acquia.com >> ~/.ssh/known_hosts
+          git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git HEAD:master
