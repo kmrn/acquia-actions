@@ -16,6 +16,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
         run: |
+          mkdir $HOME/.ssh
           echo $SSH_PRIVATE_KEY > $HOME/.ssh/id_rsa_gha
           echo $SSH_PUBLIC_KEY > $HOME/.ssh/id_rsa_gha.pub
           ssh-add $HOME/.ssh/id_rsa_gha
