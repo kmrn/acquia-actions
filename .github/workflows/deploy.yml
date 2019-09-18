@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  configure-ssh:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,11 +21,6 @@ jobs:
         run: |
           ssh-keyscan -t rsa free-8013.devcloud.hosting.acquia.com,3.230.0.80 >> ~/.ssh/known_hosts
           cat ~/.ssh/known_hosts
-       
-  deploy:
-    needs: configure-ssh
-    runs-on: ubuntu-latest
-    steps:
       - name: Push to Acquia Repository
         run: git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git HEAD:master
       
