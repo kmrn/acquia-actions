@@ -17,6 +17,8 @@ jobs:
           private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           public-key: ${{ secrets.SSH_PUBLIC_KEY }}
           name: 'id_rsa_gha'
+      - name: Push to Acquia Repository
+        run: git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git HEAD:master
 #       - name: Configure SSH Keys
 #         env:
 #           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -34,5 +36,4 @@ jobs:
 #           ssh-add ~/.ssh/id_rsa_gha
 #      - name: Add Acquia to known_hosts
  #       run: ssh-keyscan -t rsa free-8013.devcloud.hosting.acquia.com,3.230.0.80 >> ~/.ssh/known_hosts
-#       - name: Push to Acquia Repository
-#         run: git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git HEAD:master
+#       
