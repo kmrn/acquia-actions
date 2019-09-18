@@ -11,13 +11,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Add Acquia to known_hosts
-        env:
-          SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
-        run: echo "free-8013.devcloud.hosting.acquia.com,3.230.0.80 ssh-rsa $SSH_PUBLIC_KEY" >> $HOME/.ssh/known_hosts
       - name: Configure SSH Key
         uses: webfactory/ssh-agent@v0.1.1
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Add Acquia to known_hosts
+        env:
+          SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
+        run: echo "free-8013.devcloud.hosting.acquia.com,3.230.0.80 ssh-rsa $SSH_PUBLIC_KEY" >> $HOME/.ssh/known_hosts
       - name: Push to Acquia Repository
         run: git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git HEAD:master
