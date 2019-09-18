@@ -19,6 +19,7 @@ jobs:
           mkdir -p ~/.ssh
           touch ~/.ssh/known_hosts
           echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa_gha
+          cat ~/.ssh/id_rsa_gha
           echo $SSH_PUBLIC_KEY > ~/.ssh/id_rsa_gha.pub
           chmod 700 ~/.ssh
           chmod 600 ~/.ssh/known_hosts
