@@ -11,11 +11,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: webfactory/ssh-agent
+      - name: Configure SSH Key
         uses: webfactory/ssh-agent@v0.1.1
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Push to Acquia Repository
         run: |
-          ssh-keyscan -t rsa free-8013.devcloud.hosting.acquia.com >> ~/.ssh/known_hosts
+          ssh-add -l
           git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git HEAD:master
