@@ -24,6 +24,7 @@ jobs:
        
   deploy:
     needs: configure-ssh
+    runs-on: ubuntu-latest
     steps:
       - name: Push to Acquia Repository
         run: git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git HEAD:master
