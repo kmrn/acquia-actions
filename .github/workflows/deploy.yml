@@ -25,4 +25,4 @@ jobs:
           ssh-keyscan -t rsa free-8013.devcloud.hosting.acquia.com >> ~/.ssh/known_hosts
           ssh-keygen -Hf ~/.ssh/known_hosts
       - name: Push to Acquia Repository
-        run: printf 'yes\n' | git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git master
+        run: git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git HEAD:master
