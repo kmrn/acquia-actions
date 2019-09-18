@@ -32,7 +32,7 @@ jobs:
 #           chmod 600 ~/.ssh/id_rsa_gha
 #           eval $(ssh-agent)
 #           ssh-add ~/.ssh/id_rsa_gha
-      - name: Add Acquia to known_hosts
-        run: ssh-keyscan -t rsa free-8013.devcloud.hosting.acquia.com,3.230.0.80 >> ~/.ssh/known_hosts
+#      - name: Add Acquia to known_hosts
+ #       run: ssh-keyscan -t rsa free-8013.devcloud.hosting.acquia.com,3.230.0.80 >> ~/.ssh/known_hosts
 #       - name: Push to Acquia Repository
 #         run: git push actiontest@svn-8018.devcloud.hosting.acquia.com:actiontest.git HEAD:master
